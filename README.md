@@ -22,9 +22,26 @@ waitfor --env=ENVA,ENVB,ENVC,ENV_D
 waitfor --env=ENVA,ENVB --sleep=1s
 ```
 
+```yaml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+        name: myapp-pod
+        labels:
+            app: myapp
+    spec:
+        containers:
+            - name: myapp-container
+              image: busybox:1.28
+              command: ['sh', '-c', 'echo The app is running! && sleep 3600']
+        initContainers:
+            - name: init-env-check
+              image: lumioid/waitfor
+              command: ["/go/bin/waitfor", "--env=SERVICE_HOST,SERVICE2_HOSTS", "--sleep=1s"]
+```
+
 # Todo
 ```
 --envHost mode - to check for value of ENV var and ping the value
 --service - to ping for services and make sure those are ready
---
 ```
