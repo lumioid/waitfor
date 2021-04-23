@@ -1,8 +1,8 @@
 # waitfor
-waitfor is a simple software than can be used as Kubernetes initContainer that will wait for some specific criteria
+`waitfor` is a simple software than can be used as Kubernetes initContainer that will wait for some specific criteria
 
 # Why
-It starts with when we experience few small intermittent DNS not resolved error on our cluster, most of our microservices use DNS address (something.namespace.cluster.local) to refer each-other,
+It starts with when we experience few small intermittent DNS not resolved error on our cluster, most of our microservices use DNS address (`something.namespace.cluster.local`) to refer each-other,
 it turns out that kube-dns got killed because it's sometimes allocated to memory-heavy nodes.
 
 There's a lot of solution to this, such as rebooting kube-dns when the issue occurs,
