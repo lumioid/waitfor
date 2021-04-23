@@ -17,5 +17,14 @@ make sure our `service` dependencies is created in proper order (in the case if 
 ```bash
 # This will check for all specified system ENVS to be exists, will exit with code 1 if one of it is missing
 waitfor --env=ENVA,ENVB,ENVC,ENV_D
+
+# same as above but will only sleep for 1sec before exit
+waitfor --env=ENVA,ENVB --sleep=1s
 ```
 
+# Todo
+```
+--envHost mode - to check for value of ENV var and ping the value
+--service - to ping for services and make sure those are ready
+--
+```
